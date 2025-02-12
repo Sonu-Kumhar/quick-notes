@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Notes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Quick Notes</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Note Title" required>
+        <textarea name="content" placeholder="Note Content" required></textarea>
+        <button type="submit">Add Note</button>
+    </form>
+
+    <% notes.forEach(note => { %>
+        <div class="note">
+            <h2><%= note.title %></h2>
+            <p><%= note.content %></p>
+            <a href="/delete/<%= note.id %>" class="delete">Delete</a>
+        </div>
+    <% }) %>
+</body>
+</html>
